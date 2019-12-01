@@ -2,6 +2,10 @@ hook.Add("Initialize", "uTime_Init", function()
 	module( "Utime", package.seeall )
 	if not ulx then return end
 	if SERVER then
+		--[[-------------------------------------------------------------------------
+		Core Code
+		---------------------------------------------------------------------------]]
+
 		utime_welcome = CreateConVar( "utime_welcome", "0", FCVAR_ARCHIVE )
 
 		if not sql.TableExists( "utime" ) then
@@ -111,3 +115,4 @@ hook.Add("Initialize", "uTime_Init", function()
 	ulxGetTime:addParam{ type=ULib.cmds.PlayersArg }
 	ulxGetTime:defaultAccess(ULib.ACCESS_ALL)
 	ulxGetTime:help("Get info about a player's time.")
+end)
