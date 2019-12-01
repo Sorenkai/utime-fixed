@@ -1,6 +1,6 @@
 -- I only edited the base code so it doesn't crash your addons anymore
 
--- Utime originally made by: UsylessTeam, all credits to them
+-- Utime originally made by: Team Ulysses, all credits to them
 
 hook.Add("Initialize", "uTime_Init", function()
 	module( "Utime", package.seeall )
