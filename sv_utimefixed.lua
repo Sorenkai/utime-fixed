@@ -1,11 +1,14 @@
+-- I only edited the base code so it doesn't crash your addons anymore
+
+-- Utime originally made by: UsylessTeam, all credits to them
+
 hook.Add("Initialize", "uTime_Init", function()
 	module( "Utime", package.seeall )
 	if not ulx then return end
 	if SERVER then
-		--[[-------------------------------------------------------------------------
-		Core Code
-		---------------------------------------------------------------------------]]
-
+		
+		--Main uTime Code (uses SQLite)
+		
 		utime_welcome = CreateConVar( "utime_welcome", "0", FCVAR_ARCHIVE )
 
 		if not sql.TableExists( "utime" ) then
@@ -51,9 +54,9 @@ hook.Add("Initialize", "uTime_Init", function()
 		end
 		timer.Create( "UTimeTimer", 67, 0, updateAll )
 	end
-	--[[-------------------------------------------------------------------------
-	Meta functions (shared)
-	---------------------------------------------------------------------------]]
+	
+		
+	-- Metafunctions
 
 	local meta = FindMetaTable( "Player" )
 	if not meta then return end
@@ -100,9 +103,8 @@ hook.Add("Initialize", "uTime_Init", function()
 		return string.format( "%02iw %id %02ih %02im %02is", w, d, h, m, s )
 	end
 
-	--[[-------------------------------------------------------------------------
-	ULX Command
-	---------------------------------------------------------------------------]]
+	
+		--Support for ulx
 
 	local function ulxGetTimeC(ply, target_ply)
 		local target = target_ply[1] or false
